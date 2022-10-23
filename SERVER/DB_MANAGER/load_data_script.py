@@ -1,4 +1,5 @@
 from typing import List
+from .my_sql_auth import my_sql_auth
 from .QUERYS.insert_querys import *
 from .QUERYS.select_querys import *
 from .my_sql_proxy import my_sql_proxy
@@ -36,13 +37,15 @@ def load_gluten_ingredient(ingredient: str, data_base: my_sql_proxy):
         return e
 
 
-def load_ingredients(data_base: my_sql_proxy):
+def load_ingredients():
     try:
+        CONNECTOR = my_sql_proxy(my_sql_auth())
         dairy_ingredients = ["Cream", "Cheese", "Milk", "Butter",
                              "Creme", "Ricotta", "Mozzarella", "Custard", "Cream Cheese"]
         gluten_ingredients = ["Flour", "Bread",
                               "spaghetti", "Biscuits", "Beer"]
-        load_dairy_ingredients(dairy_ingredients, data_base)
-        load_gluten_ingredients(gluten_ingredients, data_base)
+        load_dairy_ingredients(dairy_ingredients, CONNECTOR)
+        load_gluten_ingredients(gluten_ingredients, CONNECTOR)
+        CONNECTOR.close()
     except Exception as e:
         return e

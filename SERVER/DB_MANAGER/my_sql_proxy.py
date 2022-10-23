@@ -40,3 +40,6 @@ class my_sql_proxy:
                 return result
         except Exception as e:
             return e
+
+    def close(self):
+        self.connection.close()

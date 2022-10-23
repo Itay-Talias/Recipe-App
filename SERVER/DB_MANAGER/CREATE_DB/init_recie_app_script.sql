@@ -7,11 +7,9 @@ USE recipes_app;
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS dairy_ingredients(
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    ingredient_name VARCHAR(50) NOT NULL
+    ingredient_name VARCHAR(50) NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE IF NOT EXISTS gluten_ingredients(
-    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    ingredient_name VARCHAR(50) NOT NULL
+    ingredient_name VARCHAR(50) NOT NULL PRIMARY KEY
 );
