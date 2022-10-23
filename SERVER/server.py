@@ -20,5 +20,10 @@ def root():
     return FileResponse('./FRONT/index.html')
 
 
+@app.get('/sanity')
+def root():
+    return FileResponse('./FRONT/index.html')
+
+
 if __name__ == "__main__":
     uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
