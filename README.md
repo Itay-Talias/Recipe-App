@@ -14,28 +14,3 @@
 <br />
 
 ## Endpoints
-
-Request:
-
-```
-GET http://localhost:8000/pokemons?trainer_name=Diantha
-```
-
-Response:
-
-```
-{
-    "pokemons": [
-        {
-            "pokemon_name": "bulbasaur"
-        },
-        {
-            "pokemon_name": "pinsir"
-        },
-        {
-            "pokemon_name": "venusaur"
-        },
-        ...
-    ]
-}
-```

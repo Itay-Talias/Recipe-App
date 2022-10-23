@@ -5,11 +5,9 @@ from DB_MANAGER.my_sql_auth import my_sql_auth
 
 CONNECTOR = my_sql_proxy(my_sql_auth())
 
+
 def get_recipes_filter_by_gluten_free(ingredient_name: str):
     recipes = get_recipes_by_ingredient_name(ingredient_name=ingredient_name)
-    print(len(recipes))
-    l = list(filter(checks_dont_contain_gluten, recipes))
-    print(len(l))
     return list(filter(checks_dont_contain_gluten, recipes))
 
 

@@ -19,7 +19,7 @@ class FetchDetailsFromAPI {
         ingredient_name: string
     ): Promise<Recipe[]> {
         const recipesArr = await $.get(
-            `./recipes/${ingredient_name}/gluten_free`
+            `./recipes/gluten_free/${ingredient_name}`
         );
         return this.parsingJSONToRecipesArr(recipesArr);
     }
@@ -27,7 +27,7 @@ class FetchDetailsFromAPI {
         ingredient_name: string
     ): Promise<Recipe[]> {
         const recipesArr = await $.get(
-            `./recipes/${ingredient_name}/daity_free`
+            `./recipes/daity_free/${ingredient_name}`
         );
         return this.parsingJSONToRecipesArr(recipesArr);
     }

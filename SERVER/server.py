@@ -26,19 +26,19 @@ def check():
     return "OK"
 
 
-@app.get('/recipes/{ingredient_name}')
-def get_recipes_by_ingredient(ingredient_name: str):
-    return get_recipes_by_ingredient_name(ingredient_name=ingredient_name)
-
-
-@app.get('/recipes/{ingredient_name}/gluten_free')
+@app.get('/recipes/gluten_free/{ingredient_name}')
 def get_recipes_by_ingredient(ingredient_name: str):
     return get_recipes_filter_by_gluten_free(ingredient_name=ingredient_name)
 
 
-@app.get('/recipes/{ingredient_name}/daity_free')
+@app.get('/recipes/daity_free/{ingredient_name}')
 def get_recipes_by_ingredient(ingredient_name: str):
     return get_recipes_filter_by_daity_free(ingredient_name=ingredient_name)
+
+
+@app.get('/recipes/{ingredient_name}')
+def get_recipes_by_ingredient(ingredient_name: str):
+    return get_recipes_by_ingredient_name(ingredient_name=ingredient_name)
 
 
 if __name__ == "__main__":

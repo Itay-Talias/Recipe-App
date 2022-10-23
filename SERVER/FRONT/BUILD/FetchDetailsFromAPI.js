@@ -27,13 +27,13 @@ class FetchDetailsFromAPI {
     }
     static FetchRecipeArrByIngredientGlutenFree(ingredient_name) {
         return __awaiter(this, void 0, void 0, function* () {
-            const recipesArr = yield $.get(`./recipes/${ingredient_name}/gluten_free`);
+            const recipesArr = yield $.get(`./recipes/gluten_free/${ingredient_name}`);
             return this.parsingJSONToRecipesArr(recipesArr);
         });
     }
     static FetchRecipeArrByIngredientDaityFree(ingredient_name) {
         return __awaiter(this, void 0, void 0, function* () {
-            const recipesArr = yield $.get(`./recipes/${ingredient_name}/daity_free`);
+            const recipesArr = yield $.get(`./recipes/daity_free/${ingredient_name}`);
             return this.parsingJSONToRecipesArr(recipesArr);
         });
     }
