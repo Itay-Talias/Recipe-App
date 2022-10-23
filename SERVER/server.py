@@ -2,6 +2,13 @@ from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import uvicorn
+from DB_MANAGER.my_sql_auth import my_sql_auth
+from DB_MANAGER.my_sql_proxy import my_sql_proxy
+from DB_MANAGER.load_data_script import load_ingredients
+
+AUTH = my_sql_auth()
+CONNECTOR = my_sql_proxy(AUTH)
+load_ingredients(CONNECTOR)
 
 app = FastAPI()
 

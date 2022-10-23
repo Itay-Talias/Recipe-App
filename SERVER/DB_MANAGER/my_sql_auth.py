@@ -4,7 +4,7 @@ import pymysql as mysql
 
 DEFAULT_HOST = "localhost"
 DEFAULT_USER = "root"
-DEFAULT_DB = "sql_poketracker"
+DEFAULT_DB = "recipes_app"
 DEFAULT_PWD = ""
 
 
