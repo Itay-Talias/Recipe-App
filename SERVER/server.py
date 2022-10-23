@@ -6,10 +6,10 @@ from DB_MANAGER.my_sql_auth import my_sql_auth
 from DB_MANAGER.my_sql_proxy import my_sql_proxy
 from EXTERNAL_API.requests_to_recipe_finder_API import get_recipes_by_ingredient_name
 from DB_MANAGER.load_data_script import load_ingredients
+from recipes_filter_module import get_recipes_filter_by_gluten_free, get_recipes_filter_by_daity_free
 
-AUTH = my_sql_auth()
-CONNECTOR = my_sql_proxy(AUTH)
-load_ingredients(CONNECTOR)
+
+# load_ingredients() - init DataBase
 
 app = FastAPI()
 
@@ -29,6 +29,16 @@ def check():
 @app.get('/recipes/{ingredient_name}')
 def get_recipes_by_ingredient(ingredient_name: str):
     return get_recipes_by_ingredient_name(ingredient_name=ingredient_name)
+
+
+@app.get('/recipes/{ingredient_name}/gluten_free')
+def get_recipes_by_ingredient(ingredient_name: str):
+    return get_recipes_filter_by_gluten_free(ingredient_name=ingredient_name)
+
+
+@app.get('/recipes/{ingredient_name}/daity_free')
+def get_recipes_by_ingredient(ingredient_name: str):
+    return get_recipes_filter_by_daity_free(ingredient_name=ingredient_name)
 
 
 if __name__ == "__main__":
