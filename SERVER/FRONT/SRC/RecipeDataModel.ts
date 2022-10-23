@@ -24,4 +24,12 @@ class RecipeDataModel {
                 ingredient_name
             );
     }
+    public async FetchRecipeArrByIngredientDaityFreeAndGlutenFree(
+        ingredient_name: string
+    ) {
+        this._recipes_arr =
+            await FetchDetailsFromAPI.FetchRecipeArrByIngredientDaityFreeAndGlutenFree(
+                ingredient_name
+            );
+    }
 }

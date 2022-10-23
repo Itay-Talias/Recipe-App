@@ -1,3 +1,4 @@
+from typing import List
 from EXTERNAL_API.requests_to_recipe_finder_API import get_recipes_by_ingredient_name
 from DB_MANAGER.my_sql_proxy import my_sql_proxy
 from DB_MANAGER.QUERYS.select_querys import *
@@ -6,9 +7,8 @@ from DB_MANAGER.my_sql_auth import my_sql_auth
 CONNECTOR = my_sql_proxy(my_sql_auth())
 
 
-def get_recipes_filter_by_gluten_free(ingredient_name: str):
-    recipes = get_recipes_by_ingredient_name(ingredient_name=ingredient_name)
-    return list(filter(checks_dont_contain_gluten, recipes))
+def get_recipes_filter_by_gluten_free(recipes_list: List[object]):
+    return list(filter(checks_dont_contain_gluten, recipes_list))
 
 
 def checks_dont_contain_gluten(recipe: object):
@@ -20,9 +20,8 @@ def checks_dont_contain_gluten(recipe: object):
     return True
 
 
-def get_recipes_filter_by_daity_free(ingredient_name: str):
-    recipes = get_recipes_by_ingredient_name(ingredient_name=ingredient_name)
-    return list(filter(checks_dont_contain_gluten, recipes))
+def get_recipes_filter_by_daity_free(recipes_list: List[object]):
+    return list(filter(checks_dont_contain_daity, recipes_list))
 
 
 def checks_dont_contain_daity(recipe: object):

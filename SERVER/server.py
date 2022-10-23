@@ -1,3 +1,4 @@
+from xmlrpc.client import Boolean, boolean
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -26,19 +27,18 @@ def check():
     return "OK"
 
 
-@app.get('/recipes/gluten_free/{ingredient_name}')
-def get_recipes_by_ingredient(ingredient_name: str):
-    return get_recipes_filter_by_gluten_free(ingredient_name=ingredient_name)
-
-
-@app.get('/recipes/daity_free/{ingredient_name}')
-def get_recipes_by_ingredient(ingredient_name: str):
-    return get_recipes_filter_by_daity_free(ingredient_name=ingredient_name)
-
-
 @app.get('/recipes/{ingredient_name}')
-def get_recipes_by_ingredient(ingredient_name: str):
-    return get_recipes_by_ingredient_name(ingredient_name=ingredient_name)
+def get_recipes_by_ingredient(ingredient_name: str, daity_free: boolean = False, gluten_free: boolean = False):
+    recipes_list = get_recipes_by_ingredient_name(
+        ingredient_name=ingredient_name)
+    if (daity_free == True and gluten_free == True):
+        recipes_list = get_recipes_filter_by_daity_free(recipes_list)
+        recipes_list = get_recipes_filter_by_gluten_free(recipes_list)
+    elif (daity_free == True):
+        recipes_list = get_recipes_filter_by_daity_free(recipes_list)
+    elif (gluten_free == True):
+        recipes_list = get_recipes_filter_by_gluten_free(recipes_list)
+    return recipes_list
 
 
 if __name__ == "__main__":

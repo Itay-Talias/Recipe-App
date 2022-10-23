@@ -10,7 +10,15 @@ class ControllerModel {
     addOnClickToGetRecipes() {
         $("#search-btn").on("click", () => {
             RenderModel.EmptyContainer("recipes");
-            if ($("#dairt-check-box:checked").val() == "on") {
+            if ($("#dairt-check-box:checked").val() == "on" &&
+                $("#gluten-check-box:checked").val() == "on") {
+                this.dataOfRecipeArr
+                    .FetchRecipeArrByIngredientDaityFreeAndGlutenFree(String($("#ingredient-input").val()))
+                    .then(() => {
+                    RenderModel.RenderContainer({ recipesArr: this.dataOfRecipeArr.RecipesArr }, "recipes");
+                });
+            }
+            else if ($("#dairt-check-box:checked").val() == "on") {
                 this.dataOfRecipeArr
                     .FetchRecipeArrByIngredientDaityFree(String($("#ingredient-input").val()))
                     .then(() => {
@@ -36,8 +44,7 @@ class ControllerModel {
     addOnClickOnImge() {
         $(".recipes").on("click", ".card-img-top", function (event) {
             const card = $(this).closest(".card");
-            console.log(card.find(".card-body").find(".ingredient"));
-            alert(card.find(".card-body").find(".ingredient").text());
+            alert(card.find(".ingredient").first().text());
         });
     }
 }

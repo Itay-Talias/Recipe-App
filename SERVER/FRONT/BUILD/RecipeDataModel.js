@@ -33,4 +33,10 @@ class RecipeDataModel {
                 yield FetchDetailsFromAPI.FetchRecipeArrByIngredientDaityFree(ingredient_name);
         });
     }
+    FetchRecipeArrByIngredientDaityFreeAndGlutenFree(ingredient_name) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this._recipes_arr =
+                yield FetchDetailsFromAPI.FetchRecipeArrByIngredientDaityFreeAndGlutenFree(ingredient_name);
+        });
+    }
 }
