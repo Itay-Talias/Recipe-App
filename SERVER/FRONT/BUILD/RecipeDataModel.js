@@ -12,7 +12,7 @@ class RecipeDataModel {
     constructor() {
         this._recipes_arr = [];
     }
-    get playerArr() {
+    get RecipesArr() {
         return this._recipes_arr;
     }
     FetchRecipeArrByIngredient(ingredient_name) {

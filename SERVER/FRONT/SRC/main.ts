@@ -1,2 +1,3 @@
+const RecipesController = new ControllerModel();
 
-alert("Hello");
+RecipesController.AddListenersToHTML();

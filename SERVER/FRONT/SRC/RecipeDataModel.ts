@@ -3,7 +3,7 @@ class RecipeDataModel {
     constructor() {
         this._recipes_arr = [] as Recipe[];
     }
-    public get playerArr(): Recipe[] {
+    public get RecipesArr(): Recipe[] {
         return this._recipes_arr;
     }
     public async FetchRecipeArrByIngredient(ingredient_name: string) {

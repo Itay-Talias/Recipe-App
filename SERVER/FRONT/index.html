@@ -56,10 +56,10 @@
                 SEARCH
             </button>
         </div>
-        <div class="players">
-            <script id="players-template" type="text/x-handlebars-template">
+        <div class="recipes">
+            <script id="recipes-template" type="text/x-handlebars-template">
                 {{#each recipesArr}}
-                    <div class="col card recipe-card" style="width: 18rem;" data-teamID={{this.teamId}} data-isActive="{{this.teamId}}" data-birth={{this.birth}}>
+                    <div class="col-1 card recipe-card" style="width: 18rem;">
                         <img
                             src="{{this.thumbnail}}"
                             class="card-img-top"
@@ -69,14 +69,14 @@
                             <h5
                                 class="title card-title"
                             >{{this.title}}</h5>
+                            <h6>Ingredient:</h6>
+                            <ul class="list-group list-group-flush">
+                                {{#each this.ingredients}}
+                                    <li class="ingredient list-group-item">{{this}}</li>
+                                {{/each}}
+                            </ul>
+                            <a href="video">{{this.href}}</a>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            {{#each recipesArr.ingredients}}
-                                <li class="ingredient list-group-item">{{this}}</li>
-                            {{/each}}
-                        </ul>
-                        <button type="button" class="add-player btn btn-secondary">Add to
-                            dream team</button>
                     </div>
                 {{/each}}
             </script>
@@ -91,7 +91,7 @@
         <script src="./FRONT/BUILD/RecipeInterface.js"></script>
         <script src="./FRONT/BUILD/RecipeDataModel.js"></script>
         <script src="./FRONT/BUILD/RenderModel.js"></script>
-        <script src="./FRONT/BUILD/RenderModel.js"></script>
+        <script src="./FRONT/BUILD/ControllerModel.js"></script>
         <script src="./FRONT/BUILD/main.js"></script>
     </body>
 </html>
