@@ -21,7 +21,41 @@
         />
     </head>
     <body>
-        <div>Hello World</div>
+        <div class="input-group mb-3">
+            <div class="form-check form-check-inline">
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="gluten-check-box"
+                />
+                <label class="form-check-label" for="inlineCheckbox1"
+                    >Gluten Free</label
+                >
+            </div>
+            <div class="form-check form-check-inline">
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="dairt-check-box"
+                />
+                <label class="form-check-label" for="inlineCheckbox1"
+                    >Dairy Free</label
+                >
+            </div>
+            <input
+                id="ingredient-input"
+                aria-label="Ingredient"
+                class="form-control"
+                placeholder="Ingredient"
+            />
+            <button
+                id="search-btn"
+                class="btn btn-outline-secondary"
+                type="button"
+            >
+                SEARCH
+            </button>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
